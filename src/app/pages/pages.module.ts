@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProgressComponent } from './progress/progress.component';
-import { Grafica1Component } from './grafica1/grafica1.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PagesComponent } from './pages.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
+import { AccountSettingsComponent } from './account/account-settings/account-settings.component';
+import { PerfilComponent } from './account/perfil/perfil.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProgressComponent } from './dashboard/progress/progress.component';
+import { Grafica1Component } from './dashboard/grafica1/grafica1.component';
+import { PromesasComponent } from './dashboard/promesas/promesas.component';
+import { RxjsComponent } from './dashboard/rxjs/rxjs.component';
+import { ResidenciasComponent } from './configuracion/residencias/residencias.component';
+import { UsuariosComponent } from './configuracion/usuarios/usuarios.component';
+import { CallesComponent } from './configuracion/calles/calles.component';
+import { VecinosComponent } from './configuracion/vecinos/vecinos.component';
+import { CuotasComponent } from './configuracion/cuotas/cuotas.component';
+import { LotificacionComponent } from './configuracion/lotificacion/lotificacion.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +30,13 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     AccountSettingsComponent,
     PromesasComponent,
     RxjsComponent,
+    PerfilComponent,
+    ResidenciasComponent,
+    UsuariosComponent,
+    CallesComponent,
+    VecinosComponent,
+    CuotasComponent,
+    LotificacionComponent,
   ],
   exports: [
     DashboardComponent,
@@ -38,7 +52,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     FormsModule,
     SharedModule,
     RouterModule,
-    ComponentsModule
+    ComponentsModule,
+    ReactiveFormsModule 
   ]
 })
 export class PagesModule { }

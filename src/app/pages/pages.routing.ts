@@ -1,26 +1,46 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { AuthGuard } from '../guards/auth.guard';
+
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProgressComponent } from './progress/progress.component';
-import { Grafica1Component } from './grafica1/grafica1.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProgressComponent } from './dashboard/progress/progress.component';
+import { Grafica1Component } from './dashboard/grafica1/grafica1.component';
+import { AccountSettingsComponent } from './account/account-settings/account-settings.component';
+import { PromesasComponent } from './dashboard/promesas/promesas.component';
+import { RxjsComponent } from './dashboard/rxjs/rxjs.component';
+import { PerfilComponent } from './account/perfil/perfil.component';
+import { ResidenciasComponent } from './configuracion/residencias/residencias.component';
+import { UsuariosComponent } from './configuracion/usuarios/usuarios.component';
+import { CallesComponent } from './configuracion/calles/calles.component';
+import { CuotasComponent } from './configuracion/cuotas/cuotas.component';
+import { VecinosComponent } from './configuracion/vecinos/vecinos.component';
+import { LotificacionComponent } from './configuracion/lotificacion/lotificacion.component';
 
 
 const routes: Routes = [
   { 
     path: 'dashboard', 
     component: PagesComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: '', component: DashboardComponent },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'grafica1', component: Grafica1Component },
-      { path: 'account-settings', component: AccountSettingsComponent },
-      { path: 'promesas', component: PromesasComponent },
-      { path: 'rxjs', component: RxjsComponent },
+      // Dashboard
+      { path: '', component: DashboardComponent, data: { titulo: "Dashboard"} },
+      { path: 'progress', component: ProgressComponent, data: { titulo: "ProgresBar"} },
+      { path: 'grafica1', component: Grafica1Component, data: { titulo: "Graficas"} },
+      { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: "Account Settings"} },
+      { path: 'promesas', component: PromesasComponent, data: { titulo: "Promesas"} },
+      { path: 'rxjs', component: RxjsComponent, data: { titulo: "RXJS"} },
+      { path: 'perfil', component: PerfilComponent, data: { titulo: "Perfil de Usuario"} },
+
+      //Configuracion
+      { path: 'usuarios', component: UsuariosComponent, data: { titulo: "Usuarios"} },
+      { path: 'residencias', component: ResidenciasComponent, data: { titulo: "Residencias"} },
+      { path: 'calles', component: CallesComponent, data: { titulo: "Calles"} },
+      { path: 'cuotas', component: CuotasComponent, data: { titulo: "Cuotas"} },
+      { path: 'vecinos', component: VecinosComponent, data: { titulo: "Vecinos"} },
+      { path: 'lotificacion', component: LotificacionComponent, data: { titulo: "Lotificación"} },
       
     ]
   },

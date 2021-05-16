@@ -5,13 +5,15 @@
       <nav class="sidebar-nav">
           <ul id="sidebarnav">
               <li class="user-profile">
-                  <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="./assets/images/users/profile.png" alt="user" /><span class="hide-menu">Steave Jobs </span></a>
+                  <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                      <img [src]="usuario.imageUrl" alt="user" />
+                      <span class="hide-menu">{{ usuario.name }} </span></a>
                   <ul aria-expanded="false" class="collapse">
-                      <li><a href="javascript:void()">My Profile </a></li>
+                      <li><a routerLinkActive="active" routerLink="./perfil">Perfil </a></li>
                       <li><a href="javascript:void()">My Balance</a></li>
                       <li><a href="javascript:void()">Inbox</a></li>
                       <li><a routerLink="account-settings">Account Setting</a></li>
-                      <li><a routerLink="/login">Logout</a></li>
+                      <li><a (click)="logout()" class="cursor">Logout</a></li>
                   </ul>
               </li>
               <li class="nav-devider"></li>
@@ -19,7 +21,7 @@
 
               <li *ngFor="let item of menuItems"> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-gauge"></i>
+                        <i [class]="item.icono"></i>
                         <span class="hide-menu">
                             {{ item.titulo }} 
                             <span class="label label-rouded label-themecolor pull-right">
@@ -33,6 +35,7 @@
                             <a  [routerLink]="subItem.url"
                                 routerLinkActive="active"
                                 [routerLinkActiveOptions]="{ exact: true }"> 
+                                <i [class]="subItem.icono"></i>
                                 {{ subItem.titulo}} </a>
                         </li>
                         
