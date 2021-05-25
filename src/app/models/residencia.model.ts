@@ -9,7 +9,7 @@ interface _residenciaUser {
 export class Residencia {
 
   constructor(
-    
+    public id:string,
     public name: string,
     public full_name: string,
     public rfc: string,
@@ -22,6 +22,5 @@ export class Residencia {
     public logo: string,
     public plan: string,
     public status: string,
-    public user: _residenciaUser
   ) {}
 }

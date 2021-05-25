@@ -1,0 +1,221 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card ">
+        <div class="card-body">
+            <form class="form-horizontal"
+                  [formGroup]="residenciaForm"
+                  (submit)="guardarResidencia()">
+                <div class="form-body">
+                    <h3 class="box-title">Info Residencia</h3>
+                    <hr class="m-t-0 m-b-40">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Nombre</label>
+                                <div class="col-md-9">
+                                    <input  type="text" 
+                                            class="form-control" 
+                                            placeholder="Residencial Toledo"
+                                            formControlName="name">
+                                    <small class="form-control-feedback"> Nombre del residencial. </small> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Grupo</label>
+                                <div class="col-md-9">
+                                    <input  type="text" 
+                                            class="form-control" 
+                                            placeholder="Constructora Urbi"
+                                            formControlName="full_name">
+                                    <small class="form-control-feedback"> Nombre del grupo o constructora.</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">RFC</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="AAA010101000" formControlName="rfc">
+                                    <small class="form-control-feedback"> Ingresa tu RFC. </small> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Reglas</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="Reglas.pdf" formControlName="rules">
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Planos</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Planos.pdf" formControlName="plan">
+                            </div>
+                        </div>
+                        <!--/span-->
+                        </div>  
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Zona Horaria</label>
+                                <div class="col-md-9">
+                                    <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" formControlName="time_zone">
+                                        <option value="-08:00">-08:00</option>
+                                        <option value="-07:00">-07:00</option>
+                                        <option value="-06:00">-06:00</option>
+                                        <option value="-05:00">-05:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                         <div class="form-group row">
+                           <label class="control-label text-right col-md-3">Logo</label>
+                           <div class="col-md-9">
+                             <div class="input-group">
+                               <img src=""
+                                    class="w100"/>
+                             </div>
+
+                           </div>
+
+                         </div>
+                      </div>
+                      <!--/span-->
+                  </div>
+                    <h3 class="box-title">Address</h3>
+                    <hr class="m-t-0 m-b-40">
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Dirección</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" formControlName="address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Colonia</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" formControlName="colony">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Ciudad</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" formControlName="city">
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Estado</label>
+                                <div class="col-md-9">
+                                  <select class="form-control custom-select" formControlName="state">
+                                      <option>Aguascalientes</option>
+                                      <option>Baja California</option>
+                                      <option>Baja California Sur</option>
+                                      <option>Campeche</option>
+                                      <option>Chiapas</option>
+                                      <option>Chihuahua</option>
+                                      <option>Coahuila</option>
+                                      <option>Colima</option>
+                                      <option>Ciudad de México</option>
+                                      <option>Durango</option>
+                                      <option>Guanajuato</option>
+                                      <option>Guerrero</option>
+                                      <option>Hidalgo</option>
+                                      <option>Jalisco</option>
+                                      <option>Estado de México</option>
+                                      <option>Michoacán</option>
+                                      <option>Morelos</option>
+                                      <option>Nayarit</option>
+                                      <option>Nuevo León</option>
+                                      <option>Oaxaca</option>
+                                      <option>Puebla</option>
+                                      <option>Querétaro</option>
+                                      <option>Quintana Roo</option>
+                                      <option>San Luis Potosí</option>
+                                      <option>Sinaloa</option>
+                                      <option>Sonora</option>
+                                      <option>Tabasco</option>
+                                      <option>Tamaulipas</option>
+                                      <option>Tlaxcala</option>
+                                      <option>Veracruz</option>
+                                      <option>Yucatán</option>
+                                      <option>Zacatecas</option>
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Codigo Postal</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" formControlName="postal_code">
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Pais</label>
+                                <div class="col-md-9">
+                                    <select class="form-control custom-select">
+                                        <option>México</option>
+                                        <option>Estados Unidos</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                </div>
+                <hr>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" class="btn btn-success" [disabled]="residenciaForm.invalid">Guardar</button>
+                                    <button type="button" class="btn btn-inverse" routerLink="/dashboard/residencias">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"> </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

@@ -63,7 +63,7 @@ export class PerfilComponent implements OnInit {
    }
 
    subirImagen(){
-     this.fileUploadService.actualizarAvatar(this.imagenAvatar, 'usuarios', this.usuario.uid)
+     this.fileUploadService.actualizarAvatar('users', this.usuario.uid, this.imagenAvatar)
         .then( img => {
           this.usuario.image = img;
           Swal.fire("Guardado", "Imagen de usuario actualizada!", 'success');

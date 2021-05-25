@@ -20,6 +20,7 @@ import { CallesComponent } from './configuracion/calles/calles.component';
 import { VecinosComponent } from './configuracion/vecinos/vecinos.component';
 import { CuotasComponent } from './configuracion/cuotas/cuotas.component';
 import { LotificacionComponent } from './configuracion/lotificacion/lotificacion.component';
+import { ResidenciaComponent } from './configuracion/residencias/residencia.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LotificacionComponent } from './configuracion/lotificacion/lotificacion
     VecinosComponent,
     CuotasComponent,
     LotificacionComponent,
+    ResidenciaComponent,
   ],
   exports: [
     DashboardComponent,

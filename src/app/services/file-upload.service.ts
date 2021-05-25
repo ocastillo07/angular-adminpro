@@ -11,17 +11,17 @@ export class FileUploadService {
   constructor() { }
 
   async actualizarAvatar(
+    tipo: 'users'|'residentials',
+    id: string,
     archivo: File,
-    tipo: 'usuarios' | 'residentias',
-    id: string
+    params: string = 'user[image]'
   ) {
 
     try {
 
-      const url = `${ base_url }/users/${id}`;
+      const url = `${ base_url }/${ tipo }/${id}`;
       const formData = new FormData();
-      formData.append('user[image]', archivo);
-
+      formData.append(params, archivo);
       const resp = await fetch( url, {
         method: 'PUT',
         headers: {
@@ -35,7 +35,6 @@ export class FileUploadService {
       return data.data.attributes.image.url;
 
     } catch (error) {
-      console.log(error);
       return false;
     }
   }

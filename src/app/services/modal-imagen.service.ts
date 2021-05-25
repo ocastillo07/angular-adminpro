@@ -6,8 +6,10 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class ModalImagenService {
 
   private _ocultarModal: boolean = true;
+  public tipo: 'users'|'residentials';
   public id: string;
   public img: string = '';
+  public params:string;
 
   public nuevaImagen: EventEmitter<string> = new EventEmitter<string>();
 
@@ -15,10 +17,17 @@ export class ModalImagenService {
     return this._ocultarModal;
   }
 
-  abrirModal(id:string, img: string) {
+  abrirModal(
+      tipo: 'users' | 'residentials', 
+      id:string, 
+      img: string,
+      params: string
+    ) {
     this._ocultarModal = false;
+    this.tipo = tipo;
     this.id = id;
     this.img = img;
+    this.params = params;
   }
 
   cerrarModal() {

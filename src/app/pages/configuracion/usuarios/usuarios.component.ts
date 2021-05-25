@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-usuarios',
@@ -26,6 +27,13 @@ export class UsuariosComponent implements OnInit, OnDestroy {
                private busquedasService: BusquedasService,
                private modalImagenService: ModalImagenService) { }
 
+    private transformarUsuarios ( resultados: any[]): Usuario[] {
+
+    return resultados.map(
+      element => new Usuario(element.attributes.name, element.attributes.email, '', element.attributes.image.url, element.attributes.role, element.attributes.google, element.attributes.uid)
+    );
+  }
+
   ngOnDestroy(): void {
     this.imgSubs.unsubscribe();
   }
@@ -33,7 +41,9 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.cargarUsuarios();
 
-    this.modalImagenService.nuevaImagen.subscribe( img => this.cargarUsuarios());
+    this.imgSubs = this.modalImagenService.nuevaImagen
+                      .pipe(delay(100))
+                      .subscribe( img => this.cargarUsuarios());
   }
 
   cargarUsuarios() {
@@ -62,7 +72,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   buscar(termino: string) {
     this.busquedasService.buscar('users', termino)
         .subscribe( resp =>  {
-          this.usuarios = resp;
+          this.usuarios = this.transformarUsuarios(resp);
         } );
 
   }
@@ -109,7 +119,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   }
 
   abrirModal(usuario: Usuario) {
-    this.modalImagenService.abrirModal(usuario.uid, usuario.imageUrl);
+    this.modalImagenService.abrirModal('users', usuario.uid, usuario.imageUrl, 'user[image]');
   }
 
 }

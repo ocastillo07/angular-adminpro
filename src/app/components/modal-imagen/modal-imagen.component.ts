@@ -44,9 +44,12 @@ export class ModalImagenComponent implements OnInit {
 
   subirImagen(){
     const id = this.modalImagenService.id;
-    this.fileUploadService.actualizarAvatar(this.imagenAvatar, 'usuarios', id)
+    const tipo = this.modalImagenService.tipo;
+    const params = this.modalImagenService.params;
+    console.log(tipo, id, this.imagenAvatar);
+    this.fileUploadService.actualizarAvatar(tipo, id, this.imagenAvatar, params)
        .then( img => {
-         Swal.fire("Guardado", "Imagen de usuario actualizada!", 'success');
+         Swal.fire("Guardado", "Imagen actualizada correctamente!", 'success');
          
          this.modalImagenService.nuevaImagen.emit(img);
 
