@@ -15,9 +15,10 @@ import { ResidenciasComponent } from './configuracion/residencias/residencias.co
 import { UsuariosComponent } from './configuracion/usuarios/usuarios.component';
 import { CallesComponent } from './configuracion/calles/calles.component';
 import { CuotasComponent } from './configuracion/cuotas/cuotas.component';
-import { VecinosComponent } from './configuracion/vecinos/vecinos.component';
 import { LotificacionComponent } from './configuracion/lotificacion/lotificacion.component';
 import { ResidenciaComponent } from './configuracion/residencias/residencia.component';
+import { ResidentesComponent } from './configuracion/residentes/residentes.component';
+import { ResidenteComponent } from './configuracion/residentes/residente/residente.component';
 
 
 const routes: Routes = [
@@ -40,8 +41,9 @@ const routes: Routes = [
       { path: 'residencias', component: ResidenciasComponent, data: { titulo: "Residencias"} },
       { path: 'residencias/:id', component: ResidenciaComponent, data: { titulo: "Residencias"} },
       { path: 'calles', component: CallesComponent, data: { titulo: "Calles"} },
+      { path: 'residentes', component: ResidentesComponent, data: { titulo: "Residentes"} },
+      { path: 'residentes/:id', component: ResidenteComponent, data: { titulo: "Residentes"} },
       { path: 'cuotas', component: CuotasComponent, data: { titulo: "Cuotas"} },
-      { path: 'vecinos', component: VecinosComponent, data: { titulo: "Vecinos"} },
       { path: 'lotificacion', component: LotificacionComponent, data: { titulo: "Lotificación"} },
       
     ]

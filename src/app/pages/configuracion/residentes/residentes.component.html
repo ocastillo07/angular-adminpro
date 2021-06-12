@@ -1,0 +1,113 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar Residente..."
+                        #txtTermino
+                        (keyup)="buscar( txtTermino.value )"/>
+  
+            </div>
+        </div>
+    </div>
+  </div> 
+  
+  <div class="row animated fadeIn fast"
+      *ngIf="cargando">
+    <div class="col-12">
+        
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+  
+    </div>
+  </div> 
+  
+  
+  <div class="row"
+      *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+  
+                  <div class="row">
+                      <div class="col-8">
+                          <h4 class="card-title">Residentes ({{totalResidentes}})</h4>
+                          <h6 class="card-subtitle">Residentes registrados en mi aplicación</h6>
+                
+                      </div>
+                      <div class="col">
+                          <div class="text-right">
+                              <a class="btn btn-primary"
+                                  routerLink="/dashboard/residentes/nuevo">
+                                  <i class="fa fa-hospital-o"></i>
+                                  Agregar Residente
+                              </a>
+                          </div>
+                          
+                      </div>
+                  </div>
+                
+                
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Correo</th>
+                                <th>Sexo</th>
+                                <th>Telefono</th>
+                                <th>Celular</th>
+                                <th class="text-nowrap">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let residente of residentes">
+                                <td>
+                                  {{ residente.name }}
+                                </td>
+                                <td>
+                                  {{ residente.last_name }}
+                                </td>
+                                <td>
+                                  {{ residente.email }}
+                                </td>
+                                <td>
+                                    {{ residente.sex }}
+                                  </td>
+                                  <td>
+                                    {{ residente.phone }}
+                                  </td>
+                                  <td>
+                                    {{ residente.cel_phone }}
+                                  </td>
+                                <td class="text-nowrap text-center">
+                                    <a [routerLink]="['/dashboard/residentes', residente.id]" data-toggle="tooltip" data-original-title="Editar"> 
+                                        <i class="fa fa-pencil text-inverse m-r-10"></i> 
+                                    </a>
+                                    <a class="cursor" 
+                                      data-toggle="tooltip" 
+                                      data-original-title="Borrar"
+                                      (click)="borrarResidente(residente)"> 
+                                          <i class="fa fa-close text-danger"></i> 
+                                      </a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+  
+                <button class="btn btn-secondary">Anteriores</button>
+                &nbsp;
+                <button class="btn btn-secondary">Siguientes</button>
+  
+            </div>
+        </div>
+    </div>
+  </div>

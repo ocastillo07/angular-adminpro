@@ -90,10 +90,13 @@
                            <label class="control-label text-right col-md-3">Logo</label>
                            <div class="col-md-9">
                              <div class="input-group">
-                               <img src=""
-                                    class="w100"/>
+                                <img *ngIf="!residenciaSeleccionada" [src]="'' | pipeImagen" 
+                                     alt="Logo" class="avatar cursor w140"
+                                     (click)="abrirModal(residenciaSeleccionada)"> 
+                                <img *ngIf="residenciaSeleccionada" [src]="residenciaSeleccionada.logo | pipeImagen" alt="Logo" class="avatar cursor w140"
+                                     (click)="abrirModal(residenciaSeleccionada)"> 
+                                
                              </div>
-
                            </div>
 
                          </div>
@@ -207,7 +210,8 @@
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
                                     <button type="submit" class="btn btn-success" [disabled]="residenciaForm.invalid">Guardar</button>
-                                    <button type="button" class="btn btn-inverse" routerLink="/dashboard/residencias">Cancelar</button>
+                                    <button *ngIf="!residenciaSeleccionada" type="button" class="btn btn-inverse" routerLink="/dashboard/residencias">Cancelar</button>
+                                    <button *ngIf="residenciaSeleccionada" type="button" class="btn btn-inverse" routerLink="/dashboard/residencias">Regresar</button>
                                 </div>
                             </div>
                         </div>

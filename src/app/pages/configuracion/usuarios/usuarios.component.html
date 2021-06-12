@@ -33,7 +33,7 @@
   <div class="col-12">
       <div class="card">
           <div class="card-body">
-              <h4 class="card-title">Totasl de usuarios ({{ totalUsuarios }})</h4>
+              <h4 class="card-title">Total de usuarios ({{ totalUsuarios }})</h4>
               <h6 class="card-subtitle">Usuarios registrados en mi aplicación</h6>
               <div class="table-responsive">
                   <table class="table table-bordered">
@@ -50,7 +50,7 @@
                       <tbody>
                           <tr *ngFor="let usuario of usuarios">
                               <td class="text-center"> 
-                                  <img [src]="usuario.imageUrl" 
+                                  <img [src]="usuario.image | pipeImagen" 
                                         alt="Avatar de Usuario" 
                                         class="avatar cursor"
                                         (click)="abrirModal(usuario)"> 

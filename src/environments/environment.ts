@@ -4,10 +4,9 @@
 
 export const environment = {
   production: false,
-  // base_url: 'http://localhost:3000/api/v1'
   base_url: 'http://localhost:3000/api',
-  client_id: 'HRJl5BJrg3xyWoSvKQ89FjN-Cs2_yLRMJfBueQ7cp2M',
-  client_secret: 'safBtUybPD3tP2_NBFdZN8GJ-EUMOpKQ2cYcyX4gciI',
+  client_id: 'F5S81HeN0EmXpL8tST-41V00ss5q542KHvceMWVDo28',
+  client_secret: '9Gbq_fWRjotMePP1Yon8T58K_NTmWUlNgIgOAraWuIs',
 };
 
 /*

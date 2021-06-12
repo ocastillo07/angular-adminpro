@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+
 import { Residencia } from 'src/app/models/residencia.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 import { ResidenciaService } from 'src/app/services/residencia.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-residencias',

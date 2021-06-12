@@ -158,12 +158,12 @@
               <!-- ============================================================== -->
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img [src]="usuario.imageUrl" alt="user" class="profile-pic" /></a>
+                      <img [src]="usuario.image | pipeImagen" alt="user" class="profile-pic" /></a>
                   <div class="dropdown-menu dropdown-menu-right animated flipInY">
                       <ul class="dropdown-user">
                           <li>
                               <div class="dw-user-box">
-                                  <div class="u-img"><img [src]="usuario.imageUrl" alt="user"></div>
+                                  <div class="u-img"><img [src]="usuario.image | pipeImagen" alt="user"></div>
                                   <div class="u-text">
                                       <h4>{{usuario.name}}</h4>
                                       <p class="text-muted">

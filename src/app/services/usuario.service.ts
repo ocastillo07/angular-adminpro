@@ -59,6 +59,7 @@ export class UsuarioService {
                     // console.log(resp.access_token);   
                     localStorage.setItem('token', resp.access_token); 
                     localStorage.setItem('refresh_token', resp.refresh_token); 
+                    localStorage.setItem('residential', resp.user.residential_default); 
                   })
                 );
   }
@@ -66,6 +67,8 @@ export class UsuarioService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('refresh_token');
+    localStorage.removeItem('residential');
+
     this.router.navigateByUrl('/login');
   }
 
@@ -83,6 +86,7 @@ export class UsuarioService {
         //almacenar el token
         localStorage.setItem('token', resp.access_token); 
         localStorage.setItem('refresh_token', resp.refresh_token); 
+        localStorage.setItem('residential', resp.user.residential_default);
         return true;
       }),
       catchError( error => of(false))  
@@ -127,7 +131,7 @@ export class UsuarioService {
                           element.attributes.name, 
                           element.attributes.email, 
                           'password', 
-                          element.attributes.image.url, 
+                          element.attributes.image, 
                           element.attributes.role, 
                           element.attributes.google, 
                           element.id)

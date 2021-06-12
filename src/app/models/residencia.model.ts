@@ -19,7 +19,7 @@ export class Residencia {
     public state: string,
     public time_zone: string,
     public rules: string,
-    public logo: string,
+    public logo: any,
     public plan: string,
     public status: string,
   ) {}

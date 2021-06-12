@@ -13,7 +13,7 @@ import { IncrementadorComponent } from './components/incrementador/incrementador
 @NgModule({
   declarations: [
     AppComponent,
-    NopagefoundComponent
+    NopagefoundComponent,
   ],
   imports: [
     BrowserModule,

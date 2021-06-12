@@ -8,14 +8,5 @@ export class Usuario {
       public google?: boolean,
       public uid?: string
   ) { }
-
-  get imageUrl() {
-    if (this.image === '' || this.image === null){
-      return 'https://res.cloudinary.com/cerradas/image/upload/v1619759513/no-image_jtzopi.png';
-    } else {
-      return this.image;
-    }
-    
-  }
   
 }

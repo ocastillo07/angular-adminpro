@@ -17,10 +17,12 @@ import { RxjsComponent } from './dashboard/rxjs/rxjs.component';
 import { ResidenciasComponent } from './configuracion/residencias/residencias.component';
 import { UsuariosComponent } from './configuracion/usuarios/usuarios.component';
 import { CallesComponent } from './configuracion/calles/calles.component';
-import { VecinosComponent } from './configuracion/vecinos/vecinos.component';
 import { CuotasComponent } from './configuracion/cuotas/cuotas.component';
 import { LotificacionComponent } from './configuracion/lotificacion/lotificacion.component';
 import { ResidenciaComponent } from './configuracion/residencias/residencia.component';
+import { ResidentesComponent } from './configuracion/residentes/residentes.component';
+import { ResidenteComponent } from './configuracion/residentes/residente/residente.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,11 @@ import { ResidenciaComponent } from './configuracion/residencias/residencia.comp
     ResidenciasComponent,
     UsuariosComponent,
     CallesComponent,
-    VecinosComponent,
     CuotasComponent,
     LotificacionComponent,
     ResidenciaComponent,
+    ResidentesComponent,
+    ResidenteComponent,
   ],
   exports: [
     DashboardComponent,
@@ -55,7 +58,8 @@ import { ResidenciaComponent } from './configuracion/residencias/residencia.comp
     SharedModule,
     RouterModule,
     ComponentsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    PipesModule 
   ]
 })
 export class PagesModule { }

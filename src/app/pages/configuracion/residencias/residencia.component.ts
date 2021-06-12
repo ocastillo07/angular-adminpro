@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 import { ResidenciaService } from 'src/app/services/residencia.service';
 import { Residencia } from 'src/app/models/residencia.model';
+import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 
 @Component({
   selector: 'app-residencia',
@@ -16,15 +17,16 @@ export class ResidenciaComponent implements OnInit {
 
   public residenciaForm: FormGroup;
   public residenciaSeleccionada: Residencia;
+  public imagenAvatar: File;
+  public imgTemp: any = null;
 
   constructor(  private fb: FormBuilder,
                 private residenciaService: ResidenciaService,
                 private router: Router,
-                private activateRouter: ActivatedRoute) { }
+                private activateRouter: ActivatedRoute,
+                private modalImagenService: ModalImagenService) { }
 
   ngOnInit(): void {
-
-    this.activateRouter.params.subscribe( ({ id }) => this.cargarResidencia(id));
 
     this.residenciaForm = this.fb.group({
       name: ["", Validators.required],
@@ -35,13 +37,14 @@ export class ResidenciaComponent implements OnInit {
       city: ["", Validators.required],
       state: ["", Validators.required],
       postal_code: ["", Validators.required],
-      time_zone: ["", Validators.required],
-      rules: ["", Validators.required],
-      plan: ["", Validators.required],
-      logo: ["", Validators.required],
+      time_zone: ["", ],
+      rules: ["", ],
+      plan: ["", ],
+      logo: ["", ],
       status: [true, Validators.required]
-
     })
+
+    this.activateRouter.params.subscribe( ({ id }) => this.cargarResidencia(id));
   }
 
   cargarResidencia(id:string) {
@@ -49,13 +52,13 @@ export class ResidenciaComponent implements OnInit {
     if ( id === 'nuevo' ) {
       return;
     }
+
     
     this.residenciaService.obtenerResidencia(id)
-          .subscribe( (resp:any) => {
+    .subscribe( (resp:any) => {
             this.residenciaSeleccionada = resp.data.attributes; 
-            console.log(this.residenciaSeleccionada.logo);
             this.residenciaForm.setValue(resp.data.attributes);
-            this.residenciaSeleccionada.id = resp.data.id; 
+            this.residenciaSeleccionada.id = resp.data.id;
           }, (err) => {
             //realizar el redirect a resicencias
             return this.router.navigateByUrl(`/dashboard/residencias`);
@@ -88,6 +91,14 @@ export class ResidenciaComponent implements OnInit {
     }
     
     
+  }
+
+  abrirModal(residencia: Residencia) {
+    if (residencia === undefined) {
+      Swal.fire('Logo', 'No puede subir el logo hasta que registre una Residencia', 'warning');
+    } else {
+      this.modalImagenService.abrirModal('residentials', residencia.id, residencia.logo, 'logo');
+    }
   }
 
 }
